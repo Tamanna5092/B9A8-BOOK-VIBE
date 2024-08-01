@@ -18,14 +18,25 @@ const BookDetails = () => {
             <p className='text-[#131313CC] text-xl font-medium my-4'>{book.category}</p>
             <hr className='text-[#13131326]' />
             <p className='text-[#131313B2] font-extralight my-6'><span className='text-[#131313]  font-bold'>Review: </span>{book.review}</p>
-            <p className=' text-[#23BE0A] font-medium'><span className='text-[#131313] font-bold'>Tag</span>#{book.tags}</p>
-            <p className='text-[#131313B2]'>Number of Pages: <span className='text-[#131313] font-semibold'>{book.totalPages}</span></p>
-            <p className='text-[#131313B2]'>Publisher: <span className='text-[#131313] font-semibold'>{book.publisher}</span></p>
-            <p className='text-[#131313B2]'>Year of Publishing: <span className='text-[#131313] font-semibold'>{book.yearOfPublishing}</span></p>
-            <p className='text-[#131313B2]'>Read <span className='text-[#131313] font-semibold'>{book.rating}</span></p>
-            <div>
-            <a className="btn text-[#FFFFFF] px-7 bg-[#23BE0A] rounded-lg">Read</a>
-            <a className="btn text-[#FFFFFF] px-7 bg-[#59C6D2] rounded-lg">Wishlist</a>
+            <p className=' text-[#23BE0A] font-medium mb-6'><span className='text-[#131313] font-bold'>Tag</span>#{book.tags}</p>
+            <hr className='text-[#13131326]' />
+            <div className='flex gap-20 my-6'>
+                <div className='space-y-3'>
+                    <p className='text-[#131313B2]'>Number of Pages:</p>
+                    <p className='text-[#131313B2]'>Publisher:</p>
+                    <p className='text-[#131313B2]'>Year of Publishing:</p>
+                    <p className='text-[#131313B2]'>Rating:</p>
+                </div>
+                <div className='space-y-3'>
+                <p className='text-[#131313] font-semibold'>{book.totalPages}</p>
+                <p className='text-[#131313] font-semibold'>{book.publisher}</p>
+                <p className='text-[#131313] font-semibold'>{book.yearOfPublishing}</p>
+                <p className='text-[#131313] font-semibold'>{book.rating}</p>
+                </div>
+            </div>
+            <div className=''>
+            <button className="btn text-[#131313] text-lg font-semibold px-7 bg-[#fff] border-1 border-stone-600 rounded-lg">Read</button>
+            <button className="btn text-[#FFFFFF] text-lg font-semibold px-7 bg-[#50B1C9] rounded-lg ml-4">Wishlist</button>
             </div>
             </div>
         </div>
