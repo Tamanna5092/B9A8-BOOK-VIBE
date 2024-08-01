@@ -1,9 +1,12 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const BookList = () => {
+    const books = useLoaderData();
+    console.log(books)
     return (
         <div>
-            This is Book List
+            <h2>book</h2>
         </div>
     );
 };

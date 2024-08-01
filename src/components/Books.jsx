@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Book from './Book';
+import BookList from './BookList';
+import BookDetails from './BookDetails';
 
 const Books = () => {
     const [books, setBooks] = useState([]);
@@ -18,7 +20,8 @@ const Books = () => {
            </div>
            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {
-                books.slice(0, dataLength).map(book => <Book key={book.id} book={book}></Book>)
+                books.slice(0, dataLength).map(book => <Book key={book.id} book={book}></Book>
+                )
             }
            </div>
            <div className={ dataLength === books.length && 'hidden'}>
