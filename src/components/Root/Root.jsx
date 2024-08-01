@@ -5,9 +5,11 @@ import Header from '../Header';
 
 const Root = () => {
     return (
-        <div className='work-sans max-w-7xl mx-auto'>
+        <div className='work-sans'>
+            <div className=' max-w-7xl mx-auto'>
             <Header></Header>
             <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );
