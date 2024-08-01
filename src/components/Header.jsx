@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Header = () => {
 
   const links = <>
-      <li className='text-[#23BE0A] text-lg font-semibold'><NavLink to={'/'}>Home</NavLink></li>
+      <li className='text-[#23BE0A] text-lg font-semibold border-2 border-green-300 rounded-lg'><NavLink to={'/'}>Home</NavLink></li>
       <li className='text-[#131313CC] text-lg'><NavLink to={'/BookList'}>Listed Books</NavLink></li>
       <li className='text-[#131313CC] text-lg'><NavLink to={'/PageToRead'}>Pages to Read</NavLink></li>
   </>
@@ -40,9 +40,9 @@ const Header = () => {
        {links}
     </ul>
   </div>
-  <div className="navbar-end text-[#FFFFFF] text-lg font-semibold gap-4">
-    <a className="btn px-7 bg-[#23BE0A] rounded-lg">Sign In</a>
-    <a className="btn px-7 bg-[#59C6D2] rounded-lg">Sign Up</a>
+  <div className="navbar-end text-lg font-semibold gap-4">
+    <a className="btn text-[#FFFFFF] px-7 bg-[#23BE0A] rounded-lg">Sign In</a>
+    <a className="btn text-[#FFFFFF] px-7 bg-[#59C6D2] rounded-lg">Sign Up</a>
   </div>
 </div>
         </div>
