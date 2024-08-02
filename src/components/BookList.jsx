@@ -3,9 +3,8 @@ import { useLoaderData, useParams } from 'react-router-dom';
 
 const BookList = () => {
     const books = useLoaderData();
-    const {bookList} = useParams()
-    // const book = books.map(book => book)
-    console.log(bookList)
+    const { bookList } = useParams();
+    const book = books.find(book => book.id === bookList);
     return (
         <div>
             <h2 className='text-center'>book</h2>
@@ -28,15 +27,22 @@ const BookList = () => {
 <div className="hero bg-base-200 min-h-screen">
   <div className="hero-content flex-col lg:flex-row">
     <img
-      src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+      src={book.image}
       className="max-w-sm rounded-lg shadow-2xl" />
     <div>
-      <h1 className="text-5xl font-bold">{books.bookName}</h1>
-      <p className="py-6">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
-      </p>
-      <button className="btn btn-primary">Get Started</button>
+      <h1 className="text-5xl font-bold">{book.bookName}</h1>
+      <p className="py-6">By: {book.author}</p>
+      <div className='flex'>
+        <p><span>Tags</span>#{book.tags}</p>
+        <p><span>Year of Publishing: </span>{book.yearOfPublishing}</p>
+      </div>
+      <div className='flex'>
+        <p><span>Publisher</span>{book.publisher}</p>
+        <p><span>Page</span>{book.totalPages}</p>
+      </div>
+        <p>Category: {book.category}</p>
+        <p>Rating: {book.rating}</p>
+        <p>View Details</p>
     </div>
   </div>
 </div>

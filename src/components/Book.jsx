@@ -10,9 +10,9 @@ const Book = ({book}) => {
             <div className='bg-[#F3F3F3] rounded-2xl py-10'> 
             <img className='mx-auto' src={image} alt="" /> 
             </div>
-            <div className='flex gap-6 mt-6 px-4 py-2 rounded-[30px] text-[#23BE0A] bg-[#23BE0A0D] font-semibold'>
+            <div className='flex gap-6  rounded-[30px] text-[#23BE0A]  font-semibold'>
                 {
-                    book.tags.map(tag => <h4 tag={tag}>{tags}</h4>)
+                    tags.map(tag => <h4 className='bg-[#23BE0A0D] mt-6 px-4 py-2' key={tag}>{tag}</h4>)
                 }
             </div>
             <h2 className='playfair-display text-[#131313] text-2xl font-bold my-4'>{bookName}</h2>
