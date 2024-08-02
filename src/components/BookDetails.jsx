@@ -5,7 +5,7 @@ const BookDetails = () => {
     const bookDetails = useLoaderData();
     const {bookId} = useParams()
     const book = bookDetails.find(book => book.bookId === bookId);
-    console.log(bookDetails, bookId)
+    
     return (
         <div className='grid gap-12 sm:grid-cols-1 md:grid-cols-2 my-14'>
             <div className='bg-[#1313130D] mx-auto p-20 rounded-2xl'>

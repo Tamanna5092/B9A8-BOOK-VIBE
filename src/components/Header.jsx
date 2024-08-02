@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+
 const Header = () => {
 
   const links = <>
-      <li className='text-[#23BE0A] text-lg font-semibold border-2 border-green-300 rounded-lg'><NavLink to={'/'}>Home</NavLink></li>
-      <li className='text-[#131313CC] text-lg'><NavLink to={'/BookList'}>Listed Books</NavLink></li>
-      <li className='text-[#131313CC] text-lg'><NavLink to={'/PageToRead'}>Pages to Read</NavLink></li>
+      <li className='text-[#131313CC] text-lg'><NavLink to={'/'} className={({isActive})=> isActive? 'text-[#23BE0A] font-semibold border-2 border-[#23BE0A] rounded-lg' : ''}>Home</NavLink></li>
+      <li className='text-[#131313CC] text-lg'><NavLink to={'/bookList'} className={({isActive})=> isActive? 'text-[#23BE0A] font-semibold border-2 border-[#23BE0A] rounded-lg' : ''}>Listed Books</NavLink></li>
+      <li className='text-[#131313CC] text-lg'><NavLink to={'/pagesToRead'} className={({isActive})=> isActive? 'text-[#23BE0A] font-semibold border-2 border-[#23BE0A] rounded-lg' : ''}>Pages to Read</NavLink></li>
   </>
     return (
         <div>
