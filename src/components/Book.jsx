@@ -16,11 +16,11 @@ const Book = ({book}) => {
                 }
             </div>
             <h2 className='playfair-display text-[#131313] text-2xl font-bold my-4'>{bookName}</h2>
-            <p className='text-{#131313} font-medium'>By: {author}</p>
+            <p className='text-[#131313] font-medium'>By: {author}</p>
             <hr className='my-5 border-dashed bg-[#13131326]' />
             <div className='flex justify-between'>
-                <p className='text-{#131313} font-medium'>{category}</p>
-                <p className='flex text-{#131313} font-medium'>{rating}<CiStar className='text-2xl'></CiStar></p>
+                <p className='text-[#131313] font-medium'>{category}</p>
+                <p className='flex text-[#131313] font-medium'>{rating}<CiStar className='text-2xl'></CiStar></p>
             </div>
             </Link>
         </div>

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Book from './Book';
-import BookList from './BookList';
-import BookDetails from './BookDetails';
 
 const Books = () => {
     const [books, setBooks] = useState([]);

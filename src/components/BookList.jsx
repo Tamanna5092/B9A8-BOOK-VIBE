@@ -1,10 +1,15 @@
-import React from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import ListedBook from './ListedBook';
 
 const BookList = () => {
-    const books = useLoaderData();
-    const { bookList } = useParams();
-    const book = books.find(book => book.id === bookList);
+  const [books, setBooks] = useState([]);
+
+    useEffect( () => {
+        fetch('books.json')
+        .then(res => res.json())
+        .then(data => setBooks(data));
+    }, [])
+   
     return (
         <div>
             <h2 className='text-center'>book</h2>
@@ -24,28 +29,10 @@ const BookList = () => {
 	</a>
 </div>
 {/* card section  */}
-<div className="hero bg-base-200 min-h-screen">
-  <div className="hero-content flex-col lg:flex-row">
-    <img
-      src={book.image}
-      className="max-w-sm rounded-lg shadow-2xl" />
-    <div>
-      <h1 className="text-5xl font-bold">{book.bookName}</h1>
-      <p className="py-6">By: {book.author}</p>
-      <div className='flex'>
-        <p><span>Tags</span>#{book.tags}</p>
-        <p><span>Year of Publishing: </span>{book.yearOfPublishing}</p>
-      </div>
-      <div className='flex'>
-        <p><span>Publisher</span>{book.publisher}</p>
-        <p><span>Page</span>{book.totalPages}</p>
-      </div>
-        <p>Category: {book.category}</p>
-        <p>Rating: {book.rating}</p>
-        <p>View Details</p>
-    </div>
-  </div>
-</div>
+{
+  books.map(book => <ListedBook key={book.id} book={book}></ListedBook>
+  )
+}
         </div>
     );
 };
