@@ -2,9 +2,13 @@ import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 
 const BookDetails = () => {
-    const bookDetails = useLoaderData();
+    const books = useLoaderData();
     const {bookId} = useParams()
-    const book = bookDetails.find(book => book.bookId === bookId);
+    const book = books.find(book => book.bookId === bookId)
+
+    const handleReadBook = book => {
+        console.log(book)
+    }
     
     return (
         <div className='grid gap-12 sm:grid-cols-1 md:grid-cols-2 my-14'>
@@ -18,7 +22,13 @@ const BookDetails = () => {
             <p className='text-[#131313CC] text-xl font-medium my-4'>{book.category}</p>
             <hr className='text-[#13131326]' />
             <p className='text-[#131313B2] font-extralight my-6'><span className='text-[#131313]  font-bold'>Review: </span>{book.review}</p>
-            <p className=' text-[#23BE0A] font-medium mb-6'><span className='text-[#131313] font-bold'>Tag</span>#{book.tags}</p>
+            <div>
+                  <p className='space-x-3 mb-6'><span className='text-[#131313] font-bold'>Tags</span>
+               {
+                    book.tags.map(tag => <span className='text-[#23BE0A] bg-[#23BE0A0D] rounded-[30px] px-4 py-2' key={tag}>#{tag}</span>)
+               }
+                </p>
+           </div>
             <hr className='text-[#13131326]' />
             <div className='flex gap-20 my-6'>
                 <div className='space-y-3'>
@@ -35,7 +45,7 @@ const BookDetails = () => {
                 </div>
             </div>
             <div className=''>
-            <button className="btn text-[#131313] text-lg font-semibold px-7 bg-[#fff] border-1 border-stone-600 rounded-lg">Read</button>
+            <button onClick={()=> handleReadBook(book)} className="btn text-[#131313] text-lg font-semibold px-7 bg-[#fff] border-1 border-stone-600 rounded-lg">Read</button>
             <button className="btn text-[#FFFFFF] text-lg font-semibold px-7 bg-[#50B1C9] rounded-lg ml-4">Wishlist</button>
             </div>
             </div>
