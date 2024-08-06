@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { saveReadBook, saveWishlist } from '../utilits';
 
 const BookDetails = () => {
     const books = useLoaderData();
@@ -8,6 +9,12 @@ const BookDetails = () => {
 
     const handleReadBook = book => {
         console.log(book)
+        saveReadBook(book)
+    }
+
+    const handleWishlist = book => {
+        console.log(book)
+        saveWishlist(book)
     }
     
     return (
@@ -46,7 +53,7 @@ const BookDetails = () => {
             </div>
             <div className=''>
             <button onClick={()=> handleReadBook(book)} className="btn text-[#131313] text-lg font-semibold px-7 bg-[#fff] border-1 border-stone-600 rounded-lg">Read</button>
-            <button className="btn text-[#FFFFFF] text-lg font-semibold px-7 bg-[#50B1C9] rounded-lg ml-4">Wishlist</button>
+            <button onClick={()=> handleWishlist(book)} className="btn text-[#FFFFFF] text-lg font-semibold px-7 bg-[#50B1C9] rounded-lg ml-4">Wishlist</button>
             </div>
             </div>
         </div>
