@@ -8,12 +8,10 @@ const BookDetails = () => {
     const book = books.find(book => book.bookId === bookId)
 
     const handleReadBook = book => {
-        console.log(book)
         saveReadBook(book)
     }
 
     const handleWishlist = book => {
-        console.log(book)
         saveWishlist(book)
     }
     
