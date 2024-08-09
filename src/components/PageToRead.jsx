@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getBooks } from "../utilits";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell, CartesianGrid, LabelList } from "recharts";
 
 const PageToRead = () => {
   const [books, setBooks] = useState([]);
@@ -8,7 +8,6 @@ const PageToRead = () => {
   useEffect(() => {
     const storedBook = getBooks();
     setBooks(storedBook);
-    console.log(storedBook);
   }, []);
 
   const colors = [
@@ -40,16 +39,31 @@ const PageToRead = () => {
     return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
   };
 
+  function CustomTooltip({ payload, label, active }) {
+    if (active) {
+      return (
+        <div>
+          <p className="label">{`${label}`}</p>
+          <p className="label">{`Total Pages : ${payload[0].value}`}</p>
+        </div>
+      );
+    }
+    return null;
+  }
+
+
   return (
     <div className="my-14">
       <BarChart width={1200} height={500} data={books}>
         <XAxis dataKey={"bookName"}></XAxis>
-        <Tooltip></Tooltip>
-        <YAxis></YAxis>
+        <Tooltip content={CustomTooltip}></Tooltip>
+        <YAxis className="inter text-[#13131380]" domain={[0, 400]} ticks={[0, 80, 160, 240, 320, 400]}></YAxis>
+        <CartesianGrid stroke="#ccc" strokeDasharray="5 5"></CartesianGrid>
         <Bar dataKey="totalPages" shape={<TriangleBar />}>
           {books.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
           ))}
+          <LabelList className="inter font-semibold" dataKey="totalPages" position="top" />
         </Bar>
       </BarChart>
     </div>
