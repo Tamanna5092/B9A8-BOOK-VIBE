@@ -13,11 +13,13 @@ import BookDetails from './components/BookDetails.jsx';
 import Wishlist from './components/Wishlist.jsx';
 import ReadBook from './components/ReadBook.jsx';
 import { Toaster } from 'react-hot-toast';
+import ErrorPage from './components/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
