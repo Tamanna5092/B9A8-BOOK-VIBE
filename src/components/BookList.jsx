@@ -1,29 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import ReadBook from "./ReadBook";
 
 const BookList = () => {
-  // const [books, setBooks] = useState([]);
   const [tabIndex, setTabIndex] = useState(0);
-
-  // useEffect(() => {
-  //   fetch("books.json")
-  //     .then((res) => res.json())
-  //     .then((data) => setBooks(data));
-  // }, []);
 
   return (
     <div>
       <h2 className="text-[#131313] text-3xl font-bold text-center bg-[#1313130D] py-8 my-10">
         Book
       </h2>
+      <div className="my-10 text-center">
+        <select className="select select-bordered bg-[#23BE0A] text-white font-semibold">
+          <option disabled selected>
+            Sort By
+          </option>
+          <option>Rating</option>
+          <option>Number of pages</option>
+          <option>Published year</option>
+        </select>
+      </div>
       <div className="flex items-center overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap dark:bg-gray-100 dark:text-gray-800">
         <Link
           to={""}
-          onClick={()=> setTabIndex(0)}
+          onClick={() => setTabIndex(0)}
           rel="noopener noreferrer"
           href="#"
-          className={`flex items-center flex-shrink-0 text-[#131313CC] px-5 py-3 space-x-2 ${tabIndex === 1? 'border border-b-0 rounded-t-lg' : 'border-b'} dark:border-gray-600 dark:text-gray-600`}
+          className={`flex items-center flex-shrink-0 text-[#131313CC] px-5 py-3 space-x-2 ${
+            tabIndex === 1 ? "border border-b-0 rounded-t-lg" : "border-b"
+          } dark:border-gray-600 dark:text-gray-600`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -41,10 +45,12 @@ const BookList = () => {
         </Link>
         <Link
           to={`wishlist`}
-          onClick={()=> setTabIndex(1)}
+          onClick={() => setTabIndex(1)}
           rel="noopener noreferrer"
           href="#"
-          className={`flex items-center flex-shrink-0 text-[#13131380] px-5 py-3 space-x-2 ${tabIndex === 0? 'border border-b-0 rounded-t-lg' : 'border-b'} dark:border-gray-600 dark:text-gray-900`}
+          className={`flex items-center flex-shrink-0 text-[#13131380] px-5 py-3 space-x-2 ${
+            tabIndex === 0 ? "border border-b-0 rounded-t-lg" : "border-b"
+          } dark:border-gray-600 dark:text-gray-900`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,10 +69,6 @@ const BookList = () => {
         </Link>
       </div>
       <Outlet></Outlet>
-      {/* card section  */}
-      {/* {books.map((book) => (
-        <ReadBook key={book.id} book={book}></ReadBook>
-      ))} */}
     </div>
   );
 };

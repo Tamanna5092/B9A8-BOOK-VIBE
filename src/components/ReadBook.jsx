@@ -3,14 +3,17 @@ import { CiLocationOn } from "react-icons/ci";
 import img2 from "../assets/Frame.jpg";
 import img3 from "../assets/Frame1.jpg";
 import { getBooks } from "../utilits";
+import { Link } from "react-router-dom";
 
 const ReadBook = () => {
   const [books, setBooks] = useState([]);
+
 
   useEffect(() => {
     const storedBook = getBooks();
     setBooks(storedBook);
   }, []);
+
 
   return (
     <div>
@@ -71,9 +74,9 @@ const ReadBook = () => {
                     <p className="bg-[#FFAC3326] text-[#FFAC33] px-5 py-3 rounded-[30px]">
                       Rating: {book.rating}
                     </p>
-                    <p className="bg-[#23BE0A] text-[#FFFFFF] font-medium px-5 py-3 rounded-[30px]">
-                      View Details
-                    </p>
+                    <Link to={``} className="bg-[#23BE0A] text-[#FFFFFF] font-medium px-5 py-3 rounded-[30px]">
+                      <button>View Details</button>
+                    </Link>
                   </div>
                 </div>
               </div>
