@@ -17,7 +17,6 @@ const ReadBook = () => {
 
   return (
     <div>
-      <h1>book: {books.length}</h1>
       <div>
         {books.map((book) => (
           <div key={book.bookId}>

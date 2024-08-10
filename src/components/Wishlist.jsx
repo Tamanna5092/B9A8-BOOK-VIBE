@@ -14,7 +14,6 @@ const Wishlist = () => {
 
     return (
         <div>
-            <h1>Wishlist: {books.length}</h1>
             <div>
         {books.map((book) => (
           <div key={book.bookId}>
