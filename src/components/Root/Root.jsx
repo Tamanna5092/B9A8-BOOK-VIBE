@@ -6,7 +6,7 @@ import Header from '../Header';
 const Root = () => {
     return (
         <div className='work-sans'>
-            <div className=' max-w-7xl mx-auto'>
+            <div className='mx-6'>
             <Header></Header>
             <Outlet></Outlet>
             </div>

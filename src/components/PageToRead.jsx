@@ -53,7 +53,8 @@ const PageToRead = () => {
 
 
   return (
-    <div className="my-14">
+    <div className="flex justify-center">
+      <div className="my-14">
       <BarChart width={1200} height={500} data={books}>
         <XAxis dataKey={"bookName"}></XAxis>
         <Tooltip content={CustomTooltip}></Tooltip>
@@ -66,6 +67,7 @@ const PageToRead = () => {
           <LabelList className="inter font-semibold" dataKey="totalPages" position="top" />
         </Bar>
       </BarChart>
+    </div>
     </div>
   );
 };

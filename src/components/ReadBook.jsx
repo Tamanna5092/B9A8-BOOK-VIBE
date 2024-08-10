@@ -62,7 +62,7 @@ const ReadBook = () => {
                     <div className="flex gap-2">
                       <img src={img3} alt="" />
                       <p>
-                        <span>Page</span>
+                        <span>Page </span>
                         {book.totalPages}
                       </p>
                     </div>
@@ -74,7 +74,7 @@ const ReadBook = () => {
                     <p className="bg-[#FFAC3326] text-[#FFAC33] px-5 py-3 rounded-[30px]">
                       Rating: {book.rating}
                     </p>
-                    <Link to={``} className="bg-[#23BE0A] text-[#FFFFFF] font-medium px-5 py-3 rounded-[30px]">
+                    <Link to={`/book/${book.bookId}`} className="bg-[#23BE0A] text-[#FFFFFF] font-medium px-5 py-3 rounded-[30px]">
                       <button>View Details</button>
                     </Link>
                   </div>

@@ -3,6 +3,7 @@ import img2 from "../assets/Frame.jpg";
 import img3 from "../assets/Frame1.jpg";
 import { getBooks } from '../utilits';
 import { CiLocationOn } from 'react-icons/ci';
+import { Link } from 'react-router-dom';
 
 const Wishlist = () => {
     const [books, setBooks] = useState([])
@@ -58,7 +59,7 @@ const Wishlist = () => {
                     <div className="flex gap-2">
                       <img src={img3} alt="" />
                       <p>
-                        <span>Page</span>
+                        <span>Page </span>
                         {book.totalPages}
                       </p>
                     </div>
@@ -70,9 +71,9 @@ const Wishlist = () => {
                     <p className="bg-[#FFAC3326] text-[#FFAC33] px-5 py-3 rounded-[30px]">
                       Rating: {book.rating}
                     </p>
-                    <button className="bg-[#23BE0A] text-[#FFFFFF] font-medium px-5 py-3 rounded-[30px]">
-                      View Details
-                    </button>
+                    <Link to={`/book/${book.bookId}`} className="bg-[#23BE0A] text-[#FFFFFF] font-medium px-5 py-3 rounded-[30px]">
+                      <button>View Details</button>
+                    </Link>
                   </div>
                 </div>
               </div>

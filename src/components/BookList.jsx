@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 const BookList = () => {
@@ -14,6 +14,7 @@ const BookList = () => {
           <option disabled selected>
             Sort By
           </option>
+          <option>All</option>
           <option>Rating</option>
           <option>Number of pages</option>
           <option>Published year</option>
