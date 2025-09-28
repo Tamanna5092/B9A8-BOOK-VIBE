@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
 
 const BookList = () => {
@@ -6,6 +7,9 @@ const BookList = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Book Vibe | Listed Book</title>
+      </Helmet>
       <h2 className="text-[#131313] text-3xl font-bold text-center bg-[#1313130D] py-8 my-10">
         Book
       </h2>
@@ -27,7 +31,7 @@ const BookList = () => {
           rel="noopener noreferrer"
           href="#"
           className={`flex items-center flex-shrink-0 text-[#131313CC] px-5 py-3 space-x-2 ${
-            tabIndex === 1 ? "border border-b-0 rounded-t-lg" : "border-b"
+            tabIndex === 1 ? "border border-b-0 rounded-t-lg" : "border-b text-[#23BE0A]"
           } dark:border-gray-600 dark:text-gray-600`}
         >
           <svg
@@ -50,7 +54,7 @@ const BookList = () => {
           rel="noopener noreferrer"
           href="#"
           className={`flex items-center flex-shrink-0 text-[#13131380] px-5 py-3 space-x-2 ${
-            tabIndex === 0 ? "border border-b-0 rounded-t-lg" : "border-b"
+            tabIndex === 0 ? "border border-b-0 rounded-t-lg" : "border-b text-[#23BE0A]"
           } dark:border-gray-600 dark:text-gray-900`}
         >
           <svg

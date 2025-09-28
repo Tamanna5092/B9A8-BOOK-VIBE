@@ -2,18 +2,16 @@ import React, { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import img2 from "../assets/Frame.jpg";
 import img3 from "../assets/Frame1.jpg";
-import { getBooks } from "../utilits";
+import { getReadBook } from "../utilits";
 import { Link } from "react-router-dom";
 
 const ReadBook = () => {
   const [books, setBooks] = useState([]);
 
-
   useEffect(() => {
-    const storedBook = getBooks();
+    const storedBook = getReadBook();
     setBooks(storedBook);
   }, []);
-
 
   return (
     <div>

@@ -1,19 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client' 
-import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Root from './components/Root/Root.jsx';
-import Home from './components/Home.jsx'; 
-import BookList from './components/BookList.jsx';
-import PageToRead from './components/PageToRead.jsx';
-import BookDetails from './components/BookDetails.jsx';
-import Wishlist from './components/Wishlist.jsx';
-import ReadBook from './components/ReadBook.jsx';
-import { Toaster } from 'react-hot-toast';
-import ErrorPage from './components/ErrorPage.jsx';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./components/Root/Root.jsx";
+import Home from "./components/Home.jsx";
+import BookList from "./components/BookList.jsx";
+import PageToRead from "./components/PageToRead.jsx";
+import BookDetails from "./components/BookDetails.jsx";
+import Wishlist from "./components/Wishlist.jsx";
+import ReadBook from "./components/ReadBook.jsx";
+import { Toaster } from "react-hot-toast";
+import ErrorPage from "./components/ErrorPage.jsx";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
@@ -22,40 +20,42 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home></Home>,
-        loader: () => fetch(`../books.json`)
-      }, 
+        loader: () => fetch(`../books.json`),
+      },
       {
-        path: '/bookList',
+        path: "/bookList",
         element: <BookList></BookList>,
         children: [
           {
             index: true,
-            element: <ReadBook></ReadBook>
+            element: <ReadBook></ReadBook>,
           },
           {
-            path: 'wishlist',
-            element: <Wishlist></Wishlist>
-          }
-        ]
+            path: "wishlist",
+            element: <Wishlist></Wishlist>,
+          },
+        ],
       },
       {
-        path: '/pagesToRead',
-        element: <PageToRead></PageToRead>
+        path: "/pagesToRead",
+        element: <PageToRead></PageToRead>,
       },
       {
-        path: '/book/:bookId',
+        path: "/book/:bookId",
         element: <BookDetails></BookDetails>,
-        loader: () => fetch(`../books.json`)
+        loader: () => fetch(`../books.json`),
       },
-    ]
+    ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
     <Toaster></Toaster>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

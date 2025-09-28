@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { getBooks } from "../utilits";
+import { getReadBook } from "../utilits";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell, CartesianGrid, LabelList } from "recharts";
+import { Helmet } from "react-helmet-async";
 
 const PageToRead = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    const storedBook = getBooks();
+    const storedBook = getReadBook();
     setBooks(storedBook);
   }, []);
 
@@ -54,6 +55,9 @@ const PageToRead = () => {
 
   return (
     <div className="flex justify-center">
+      <Helmet>
+        <title>Book Vibe | Page To Read</title>
+      </Helmet>
       <div className="my-14">
       <BarChart width={1200} height={500} data={books}>
         <XAxis dataKey={"bookName"}></XAxis>

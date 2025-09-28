@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import img2 from "../assets/Frame.jpg";
 import img3 from "../assets/Frame1.jpg";
-import { getBooks } from '../utilits';
+import { getWishListBook } from '../utilits';
 import { CiLocationOn } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
 
 const Wishlist = () => {
     const [books, setBooks] = useState([])
     useEffect(()=> {
-        const storedBook = getBooks()
+        const storedBook = getWishListBook()
         setBooks(storedBook)
     },[])
 
