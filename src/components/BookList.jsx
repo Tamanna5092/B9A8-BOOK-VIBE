@@ -1,9 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
+import { getReadBook, getWishListBook } from "../utilits";
+import Sort from "./Sort";
 
 const BookList = () => {
   const [tabIndex, setTabIndex] = useState(0);
+  const [readBooks, setReadBooks] = useState([]);
+  const [wishlistBooks, setWishlistBooks] = useState([]);
+
+  // read list
+  useEffect(() => {
+    const storedBook = getReadBook();
+    setReadBooks(storedBook);
+  }, []);
+  console.log("read list books", readBooks);
+
+  // wishlist book
+  useEffect(() => {
+    const storedBook = getWishListBook();
+    setWishlistBooks(storedBook);
+  }, []);
 
   return (
     <div>
@@ -11,19 +28,16 @@ const BookList = () => {
         <title>Book Vibe | Listed Book</title>
       </Helmet>
       <h2 className="text-[#131313] text-3xl font-bold text-center bg-[#1313130D] py-8 my-10">
-        Book
+        Books
       </h2>
-      <div className="my-10 text-center">
-        <select className="select select-bordered bg-[#23BE0A] text-white font-semibold">
-          <option disabled selected>
-            Sort By
-          </option>
-          <option>All</option>
-          <option>Rating</option>
-          <option>Number of pages</option>
-          <option>Published year</option>
-        </select>
-      </div>
+      {/* sort data */}
+      <Sort
+        readBooks={readBooks}
+        setReadBooks={setReadBooks}
+        wishlistBooks={wishlistBooks}
+        setWishlistBooks={setWishlistBooks}
+        tabIndex={tabIndex}
+      ></Sort>
       <div className="flex items-center overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap dark:bg-gray-100 dark:text-gray-800">
         <Link
           to={""}
@@ -31,7 +45,9 @@ const BookList = () => {
           rel="noopener noreferrer"
           href="#"
           className={`flex items-center flex-shrink-0 text-[#131313CC] px-5 py-3 space-x-2 ${
-            tabIndex === 1 ? "border border-b-0 rounded-t-lg" : "border-b text-[#23BE0A]"
+            tabIndex === 1
+              ? "border-2 border-b-0 rounded-t-lg"
+              : "border-b text-[#23BE0A]"
           } dark:border-gray-600 dark:text-gray-600`}
         >
           <svg
@@ -54,7 +70,9 @@ const BookList = () => {
           rel="noopener noreferrer"
           href="#"
           className={`flex items-center flex-shrink-0 text-[#13131380] px-5 py-3 space-x-2 ${
-            tabIndex === 0 ? "border border-b-0 rounded-t-lg" : "border-b text-[#23BE0A]"
+            tabIndex === 0
+              ? "border-2 border-b-0 rounded-t-lg"
+              : "border-b text-[#23BE0A]"
           } dark:border-gray-600 dark:text-gray-900`}
         >
           <svg
@@ -73,7 +91,7 @@ const BookList = () => {
           <span>Wishlist Books</span>
         </Link>
       </div>
-      <Outlet></Outlet>
+      <Outlet context={{ readBooks, wishlistBooks }}></Outlet>
     </div>
   );
 };
